@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | EduLearn</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 EduLearn Admin
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('index') }}">
+            Website
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="admin-dashboard">
+
+    <h1>
+        Admin Dashboard
+    </h1>
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <h3>
+                Total Students
+            </h3>
+
+            <strong>
+                {{ users|length }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                Total Courses
+            </h3>
+
+            <strong>
+                {{ courses|length }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                Enrollments
+            </h3>
+
+            <strong>
+                {{ enrollment_count }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-form">
+
+        <h2>
+            Add New Course
+        </h2>
+
+        <form method="POST"
+              action="{{ url_for('add_course') }}">
+
+            <input
+                name="title"
+                placeholder="Course Title"
+                required
+            >
+
+            <input
+                name="instructor"
+                placeholder="Instructor"
+                required
+            >
+
+            <input
+                name="duration"
+                placeholder="Duration"
+                required
+            >
+
+            <input
+                type="number"
+                name="price"
+                placeholder="Price"
+                required
+            >
+
+            <input
+                name="category"
+                placeholder="Category"
+                required
+            >
+
+            <input
+                name="image"
+                placeholder="Image URL"
+            >
+
+            <textarea
+                name="description"
+                placeholder="Course Description"
+                required
+            ></textarea>
+
+            <button class="btn">
+                Add Course
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <h2>
+        Course Management
+    </h2>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Course</th>
+                    <th>Instructor</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for course in courses %}
+
+                <tr>
+
+                    <td>
+                        {{ course['id'] }}
+                    </td>
+
+                    <td>
+                        {{ course['title'] }}
+                    </td>
+
+                    <td>
+                        {{ course['instructor'] }}
+                    </td>
+
+                    <td>
+                        {{ course['category'] }}
+                    </td>
+
+                    <td>
+                        ₹{{ course['price'] }}
+                    </td>
+
+                    <td>
+
+                        <a class="delete-btn"
+                           href="{{ url_for(
+                               'delete_course',
+                               course_id=course['id']
+                           ) }}"
+                           onclick="return confirm(
+                               'Delete this course?'
+                           )">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</body>
+</html>

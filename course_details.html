@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{ course['title'] }} | EduLearn
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 EduLearn
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('index') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        {% if session.get('user_id') %}
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+</header>
+
+
+<section class="course-detail">
+
+    <div class="detail-image">
+
+        <img src="{{ course['image'] }}"
+             alt="{{ course['title'] }}">
+
+    </div>
+
+
+    <div class="detail-content">
+
+        <span class="category">
+            {{ course['category'] }}
+        </span>
+
+        <h1>
+            {{ course['title'] }}
+        </h1>
+
+        <p class="description">
+            {{ course['description'] }}
+        </p>
+
+
+        <div class="detail-info">
+
+            <div>
+                <strong>Instructor</strong>
+                <span>
+                    {{ course['instructor'] }}
+                </span>
+            </div>
+
+            <div>
+                <strong>Duration</strong>
+                <span>
+                    {{ course['duration'] }}
+                </span>
+            </div>
+
+            <div>
+                <strong>Course Fee</strong>
+                <span>
+                    ₹{{ course['price'] }}
+                </span>
+            </div>
+
+        </div>
+
+
+        <form method="POST"
+              action="{{ url_for(
+                  'enroll',
+                  course_id=course['id']
+              ) }}">
+
+            <button class="btn"
+                    type="submit">
+
+                Enroll Now
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+{% with messages = get_flashed_messages(
+    with_categories=true
+) %}
+
+<div class="messages">
+
+    {% for category, message in messages %}
+
+        <div class="alert {{ category }}">
+            {{ message }}
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endwith %}
+
+</body>
+</html>

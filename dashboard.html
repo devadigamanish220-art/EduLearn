@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | EduLearn</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 EduLearn
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('index') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <span>
+                STUDENT DASHBOARD
+            </span>
+
+            <h1>
+                Welcome, {{ session['user_name'] }} 👋
+            </h1>
+
+            <p>
+                Continue learning and track your courses.
+            </p>
+
+        </div>
+
+        <a class="btn"
+           href="{{ url_for('courses') }}">
+
+            Browse Courses
+
+        </a>
+
+    </div>
+
+
+    <h2>
+        My Courses
+    </h2>
+
+
+    <div class="course-grid">
+
+        {% for course in enrollments %}
+
+        <div class="course-card">
+
+            <img src="{{ course['image'] }}"
+                 alt="{{ course['title'] }}">
+
+            <div class="course-content">
+
+                <span class="category">
+                    {{ course['category'] }}
+                </span>
+
+                <h3>
+                    {{ course['title'] }}
+                </h3>
+
+                <p>
+                    Instructor:
+                    {{ course['instructor'] }}
+                </p>
+
+                <p>
+                    Enrolled:
+                    {{ course['enrolled_date'] }}
+                </p>
+
+                <a class="btn"
+                   href="{{ url_for(
+                       'course_details',
+                       course_id=course['id']
+                   ) }}">
+
+                    Continue Learning
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <h2>
+                No courses yet
+            </h2>
+
+            <p>
+                Explore our courses and start learning.
+            </p>
+
+            <a class="btn"
+               href="{{ url_for('courses') }}">
+
+                Explore Courses
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+</body>
+</html>
