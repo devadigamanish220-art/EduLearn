@@ -1,216 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>EduLearn | Online Education</title>
+    <title>Login - EduLearn</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<header class="navbar">
-
-    <div class="logo">
-        🎓 EduLearn
-    </div>
+<header>
+    <div class="logo">🎓 EduLearn</div>
 
     <nav>
-
-       <a href="index.html">
-    Home
-</a>
-
-<a href="courses.html">
-    Courses
-</a>
-
-<a href="login.html">
-    Login
-</a>
-
-<a class="nav-btn" href="register.html">
-    Register
-</a>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
     </nav>
-
 </header>
 
+<main>
 
-<section class="hero">
+    <section class="login-section">
 
-    <div class="hero-content">
-
-        <span class="hero-tag">
-            LEARN • GROW • SUCCEED
-        </span>
-
-        <h1>
-            Learn Today.
-            <br>
-            Build Your Future.
-        </h1>
+        <h1>Welcome Back!</h1>
 
         <p>
-            Explore professional courses and develop
-            the skills you need for your career.
+            Continue your learning journey and develop new skills.
         </p>
 
-        <div class="hero-buttons">
+        <h2>Login</h2>
 
-            <a class="btn"
-               href="courses.html"
-                Explore Courses
-            </a>
+        <p>Login to your EduLearn account</p>
 
-            <a class="btn-outline"
-              href="register.html"
-                Start Learning
-            </a>
+        <form id="loginForm">
 
-        </div>
+            <div>
+                <label for="email">Email Address</label>
 
-    </div>
-
-</section>
-
-
-<section class="features">
-
-    <div class="feature">
-        <div>📚</div>
-        <h3>Expert Courses</h3>
-        <p>
-            Learn from structured courses.
-        </p>
-    </div>
-
-    <div class="feature">
-        <div>👨‍🏫</div>
-        <h3>Expert Instructors</h3>
-        <p>
-            Learn from experienced instructors.
-        </p>
-    </div>
-
-    <div class="feature">
-        <div>🏆</div>
-        <h3>Career Skills</h3>
-        <p>
-            Build practical career skills.
-        </p>
-    </div>
-
-    <div class="feature">
-        <div>💻</div>
-        <h3>Learn Anywhere</h3>
-        <p>
-            Access your learning dashboard anytime.
-        </p>
-    </div>
-
-</section>
-
-
-<section class="section">
-
-    <div class="section-title">
-
-        <span>POPULAR COURSES</span>
-
-        <h2>
-            Explore Our Courses
-        </h2>
-
-        <p>
-            Choose a course and start learning today.
-        </p>
-
-    </div>
-
-
-    <div class="course-grid">
-
-        {% for course in courses %}
-
-        <div class="course-card">
-
-            <img src="{{ course['image'] }}"
-                 alt="{{ course['title'] }}">
-
-            <div class="course-content">
-
-                <span class="category">
-                    {{ course['category'] }}
-                </span>
-
-                <h3>
-                    {{ course['title'] }}
-                </h3>
-
-                <p>
-                    {{ course['description'] }}
-                </p>
-
-                <div class="course-info">
-
-                    <span>
-                        👨‍🏫 {{ course['instructor'] }}
-                    </span>
-
-                    <span>
-                        ⏱ {{ course['duration'] }}
-                    </span>
-
-                </div>
-
-                <div class="course-bottom">
-
-                    <strong>
-                        ₹{{ course['price'] }}
-                    </strong>
-
-                    <a href="{{ url_for(
-                        'course_details',
-                        course_id=course['id']
-                    ) }}">
-                        View Course →
-                    </a>
-
-                </div>
-
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
             </div>
 
-        </div>
+            <div>
+                <label for="password">Password</label>
 
-        {% endfor %}
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
 
-    </div>
+            <button type="submit">Login</button>
 
-</section>
+        </form>
 
+        <p>
+            Don't have an account?
+            <a href="register.html">Register</a>
+        </p>
 
-<footer>
+    </section>
 
-    <h3>🎓 EduLearn</h3>
+</main>
 
-    <p>
-        Online Education and Course Management System
-    </p>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
 
-    <p>
-        © 2026 EduLearn. All Rights Reserved.
-    </p>
+    event.preventDefault();
 
-</footer>
+    alert("Login connection will be added next.");
 
+});
+</script>
 
 </body>
 </html>
