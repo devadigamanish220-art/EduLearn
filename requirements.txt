@@ -1,8 +1,3 @@
-<<<<<<< HEAD
 Flask==3.1.2
 Werkzeug==3.1.3
-=======
-Flask==3.1.2
-Werkzeug==3.1.3
->>>>>>> 3bc3eb9fe450abfefcd1a3b00344fc164997d224
-gunicorn==23.0.0
+gunicorn
