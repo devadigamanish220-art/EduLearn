@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Courses | EduLearn</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 EduLearn
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('index') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        {% if session.get('user_id') %}
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+</header>
+
+
+<section class="page-header">
+
+    <h1>Explore Courses</h1>
+
+    <p>
+        Find the right course for your career.
+    </p>
+
+</section>
+
+
+<section class="course-section">
+
+
+    <form class="search-box"
+          method="GET"
+          action="{{ url_for('courses') }}">
+
+        <input
+            type="text"
+            name="search"
+            value="{{ search }}"
+            placeholder="Search courses..."
+        >
+
+
+        <select name="category">
+
+            <option value="">
+                All Categories
+            </option>
+
+            {% for category in categories %}
+
+            <option
+                value="{{ category['category'] }}"
+                {% if selected_category == category['category'] %}
+                    selected
+                {% endif %}
+            >
+
+                {{ category['category'] }}
+
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <button class="btn"
+                type="submit">
+
+            Search
+
+        </button>
+
+    </form>
+
+
+    <div class="course-grid">
+
+        {% for course in courses %}
+
+        <div class="course-card">
+
+            <img src="{{ course['image'] }}"
+                 alt="{{ course['title'] }}">
+
+
+            <div class="course-content">
+
+                <span class="category">
+                    {{ course['category'] }}
+                </span>
+
+                <h3>
+                    {{ course['title'] }}
+                </h3>
+
+                <p>
+                    {{ course['description'] }}
+                </p>
+
+                <div class="course-info">
+
+                    <span>
+                        👨‍🏫 {{ course['instructor'] }}
+                    </span>
+
+                    <span>
+                        ⏱ {{ course['duration'] }}
+                    </span>
+
+                </div>
+
+
+                <div class="course-bottom">
+
+                    <strong>
+                        ₹{{ course['price'] }}
+                    </strong>
+
+                    <a href="{{ url_for(
+                        'course_details',
+                        course_id=course['id']
+                    ) }}">
+
+                        View Course →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="no-results">
+
+            <h2>
+                No courses found
+            </h2>
+
+            <p>
+                Try another search.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+</body>
+</html>
