@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EduLearn | Online Education</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 EduLearn
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('index') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        {% if session.get('user_id') %}
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            {% if session.get('role') == 'admin' %}
+
+                <a href="{{ url_for('admin') }}">
+                    Admin
+                </a>
+
+            {% endif %}
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+            <a class="nav-btn"
+               href="{{ url_for('register') }}">
+                Register
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            LEARN • GROW • SUCCEED
+        </span>
+
+        <h1>
+            Learn Today.
+            <br>
+            Build Your Future.
+        </h1>
+
+        <p>
+            Explore professional courses and develop
+            the skills you need for your career.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="btn"
+               href="{{ url_for('courses') }}">
+                Explore Courses
+            </a>
+
+            <a class="btn-outline"
+               href="{{ url_for('register') }}">
+                Start Learning
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature">
+        <div>📚</div>
+        <h3>Expert Courses</h3>
+        <p>
+            Learn from structured courses.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div>👨‍🏫</div>
+        <h3>Expert Instructors</h3>
+        <p>
+            Learn from experienced instructors.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div>🏆</div>
+        <h3>Career Skills</h3>
+        <p>
+            Build practical career skills.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div>💻</div>
+        <h3>Learn Anywhere</h3>
+        <p>
+            Access your learning dashboard anytime.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>POPULAR COURSES</span>
+
+        <h2>
+            Explore Our Courses
+        </h2>
+
+        <p>
+            Choose a course and start learning today.
+        </p>
+
+    </div>
+
+
+    <div class="course-grid">
+
+        {% for course in courses %}
+
+        <div class="course-card">
+
+            <img src="{{ course['image'] }}"
+                 alt="{{ course['title'] }}">
+
+            <div class="course-content">
+
+                <span class="category">
+                    {{ course['category'] }}
+                </span>
+
+                <h3>
+                    {{ course['title'] }}
+                </h3>
+
+                <p>
+                    {{ course['description'] }}
+                </p>
+
+                <div class="course-info">
+
+                    <span>
+                        👨‍🏫 {{ course['instructor'] }}
+                    </span>
+
+                    <span>
+                        ⏱ {{ course['duration'] }}
+                    </span>
+
+                </div>
+
+                <div class="course-bottom">
+
+                    <strong>
+                        ₹{{ course['price'] }}
+                    </strong>
+
+                    <a href="{{ url_for(
+                        'course_details',
+                        course_id=course['id']
+                    ) }}">
+                        View Course →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>🎓 EduLearn</h3>
+
+    <p>
+        Online Education and Course Management System
+    </p>
+
+    <p>
+        © 2026 EduLearn. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
