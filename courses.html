@@ -8,14 +8,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Courses | EduLearn</title>
+    <title>Courses - EduLearn</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
+
 
 <header class="navbar">
 
@@ -25,174 +26,231 @@
 
     <nav>
 
-        <a href="{{ url_for('index') }}">
+        <a href="index.html">
             Home
         </a>
 
-        <a href="{{ url_for('courses') }}">
+        <a href="courses.html">
             Courses
         </a>
 
-        {% if session.get('user_id') %}
+        <a href="login.html">
+            Login
+        </a>
 
-            <a href="{{ url_for('dashboard') }}">
-                Dashboard
-            </a>
-
-            <a href="{{ url_for('logout') }}">
-                Logout
-            </a>
-
-        {% else %}
-
-            <a href="{{ url_for('login') }}">
-                Login
-            </a>
-
-        {% endif %}
+        <a href="register.html" class="nav-btn">
+            Register
+        </a>
 
     </nav>
 
 </header>
 
 
-<section class="page-header">
+<main>
 
-    <h1>Explore Courses</h1>
+    <section class="courses-section">
 
-    <p>
-        Find the right course for your career.
-    </p>
+        <div class="section-title">
 
-</section>
+            <span>
+                POPULAR COURSES
+            </span>
 
+            <h2>
+                Explore Our Courses
+            </h2>
 
-<section class="course-section">
+            <p>
+                Choose a course and start learning today.
+            </p>
 
-
-    <form class="search-box"
-          method="GET"
-          action="{{ url_for('courses') }}">
-
-        <input
-            type="text"
-            name="search"
-            value="{{ search }}"
-            placeholder="Search courses..."
-        >
+        </div>
 
 
-        <select name="category">
-
-            <option value="">
-                All Categories
-            </option>
-
-            {% for category in categories %}
-
-            <option
-                value="{{ category['category'] }}"
-                {% if selected_category == category['category'] %}
-                    selected
-                {% endif %}
-            >
-
-                {{ category['category'] }}
-
-            </option>
-
-            {% endfor %}
-
-        </select>
+        <div class="course-grid">
 
 
-        <button class="btn"
-                type="submit">
+            <!-- WEB DEVELOPMENT -->
 
-            Search
+            <div class="course-card">
 
-        </button>
-
-    </form>
-
-
-    <div class="course-grid">
-
-        {% for course in courses %}
-
-        <div class="course-card">
-
-            <img src="{{ course['image'] }}"
-                 alt="{{ course['title'] }}">
-
-
-            <div class="course-content">
-
-                <span class="category">
-                    {{ course['category'] }}
-                </span>
-
-                <h3>
-                    {{ course['title'] }}
-                </h3>
-
-                <p>
-                    {{ course['description'] }}
-                </p>
-
-                <div class="course-info">
-
-                    <span>
-                        👨‍🏫 {{ course['instructor'] }}
-                    </span>
-
-                    <span>
-                        ⏱ {{ course['duration'] }}
-                    </span>
-
+                <div class="course-image">
+                    💻
                 </div>
 
+                <div class="course-content">
 
-                <div class="course-bottom">
+                    <span class="category">
+                        Programming
+                    </span>
 
-                    <strong>
-                        ₹{{ course['price'] }}
-                    </strong>
+                    <h3>
+                        Web Development
+                    </h3>
 
-                    <a href="{{ url_for(
-                        'course_details',
-                        course_id=course['id']
-                    ) }}">
+                    <p>
+                        Learn HTML, CSS and JavaScript
+                        and build modern websites.
+                    </p>
 
-                        View Course →
+                    <div class="course-info">
 
-                    </a>
+                        <span>
+                            👨‍🏫 Instructor
+                        </span>
+
+                        <span>
+                            ⏱ 8 Weeks
+                        </span>
+
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>
+                            ₹999
+                        </strong>
+
+                        <a href="login.html">
+                            View Course →
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
 
+
+            <!-- PYTHON -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+                    🐍
+                </div>
+
+                <div class="course-content">
+
+                    <span class="category">
+                        Programming
+                    </span>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        Learn Python fundamentals and
+                        build practical applications.
+                    </p>
+
+                    <div class="course-info">
+
+                        <span>
+                            👨‍🏫 Instructor
+                        </span>
+
+                        <span>
+                            ⏱ 6 Weeks
+                        </span>
+
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>
+                            ₹799
+                        </strong>
+
+                        <a href="login.html">
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATA ANALYTICS -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+                    📊
+                </div>
+
+                <div class="course-content">
+
+                    <span class="category">
+                        Data
+                    </span>
+
+                    <h3>
+                        Data Analytics
+                    </h3>
+
+                    <p>
+                        Learn how to analyze data and
+                        create useful insights.
+                    </p>
+
+                    <div class="course-info">
+
+                        <span>
+                            👨‍🏫 Instructor
+                        </span>
+
+                        <span>
+                            ⏱ 10 Weeks
+                        </span>
+
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>
+                            ₹1,299
+                        </strong>
+
+                        <a href="login.html">
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
 
-        {% else %}
+    </section>
 
-        <div class="no-results">
+</main>
 
-            <h2>
-                No courses found
-            </h2>
 
-            <p>
-                Try another search.
-            </p>
+<footer>
 
-        </div>
+    <h3>
+        🎓 EduLearn
+    </h3>
 
-        {% endfor %}
+    <p>
+        Online Education and Course Management System
+    </p>
 
-    </div>
+    <p>
+        © 2026 EduLearn. All rights reserved.
+    </p>
 
-</section>
+</footer>
+
 
 </body>
+
 </html>

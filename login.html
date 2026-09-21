@@ -1,112 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Login | EduLearn</title>
-
-    <link rel="stylesheet"href="{{ url_for('static', filename='style.css') }}">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EduLearn</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="auth-page">
+<body>
 
-<div class="auth-container">
+<header class="navbar">
+    <div class="logo">
+        🎓 EduLearn
+    </div>
 
-    <div class="auth-left">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="nav-btn">Register</a>
+    </nav>
+</header>
 
-        <h1>🎓 EduLearn</h1>
+<main class="auth-page">
 
-        <h2>
-            Welcome Back!
-        </h2>
+    <div class="auth-container">
 
-        <p>
-            Continue your learning journey
-            and develop new skills.
-        </p>
+        <div class="auth-left">
+            <h1>🎓 EduLearn</h1>
+
+            <h2>Welcome Back!</h2>
+
+            <p>
+                Continue your learning journey
+                and develop new skills with EduLearn.
+            </p>
+        </div>
+
+        <div class="auth-box">
+
+            <h2>Login</h2>
+
+            <p class="auth-subtitle">
+                Login to your EduLearn account
+            </p>
+
+            <form id="loginForm">
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit" class="btn full-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="auth-footer">
+                Don't have an account?
+                <a href="register.html">Register</a>
+            </p>
+
+        </div>
 
     </div>
 
+</main>
 
-    <div class="auth-box">
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
 
-        <h2>Login</h2>
+    event.preventDefault();
 
-        <p class="auth-subtitle">
-            Login to your EduLearn account
-        </p>
+    alert("Login connection will be added next.");
 
-
-        {% with messages = get_flashed_messages(
-            with_categories=true
-        ) %}
-
-            {% for category, message in messages %}
-
-                <div class="alert {{ category }}">
-                    {{ message }}
-                </div>
-
-            {% endfor %}
-
-        {% endwith %}
-
-
-        <form method="POST">
-
-            <label>
-                Email Address
-            </label>
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-            >
-
-
-            <label>
-                Password
-            </label>
-
-            <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                required
-            >
-
-
-            <button class="btn full-btn"
-                    type="submit">
-
-                Login
-
-            </button>
-
-        </form>
-
-
-        <p class="auth-footer">
-
-            Don't have an account?
-
-            <a href="{{ url_for('register') }}">
-                Register
-            </a>
-
-        </p>
-
-    </div>
-
-</div>
+});
+</script>
 
 </body>
 </html>
