@@ -1,89 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login - EduLearn</title>
+    <title>EduLearn - Online Education</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <div class="logo">🎓 EduLearn</div>
+<header class="navbar">
+
+    <div class="logo">
+        🎓 EduLearn
+    </div>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="courses.html">Courses</a>
         <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
+        <a href="register.html" class="nav-btn">Register</a>
     </nav>
+
 </header>
+
 
 <main>
 
-    <section class="login-section">
+    <!-- HERO SECTION -->
 
-        <h1>Welcome Back!</h1>
+    <section class="hero">
 
-        <p>
-            Continue your learning journey and develop new skills.
-        </p>
+        <div class="hero-content">
 
-        <h2>Login</h2>
+            <span class="hero-tag">
+                ONLINE EDUCATION PLATFORM
+            </span>
 
-        <p>Login to your EduLearn account</p>
+            <h1>
+                Learn Today.<br>
+                Build Your Future.
+            </h1>
 
-        <form id="loginForm">
+            <p>
+                Learn practical skills from professional instructors
+                and build your knowledge with EduLearn.
+            </p>
 
-            <div>
-                <label for="email">Email Address</label>
+            <div class="hero-buttons">
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                >
+                <a href="courses.html" class="btn">
+                    Explore Courses
+                </a>
+
+                <a href="register.html" class="btn-outline">
+                    Get Started
+                </a>
+
             </div>
 
-            <div>
-                <label for="password">Password</label>
+        </div>
 
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    required
-                >
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div>🎓</div>
+
+            <h3>
+                Expert Instructors
+            </h3>
+
+            <p>
+                Learn from experienced instructors.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>📚</div>
+
+            <h3>
+                Quality Courses
+            </h3>
+
+            <p>
+                Practical courses designed for learners.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>💻</div>
+
+            <h3>
+                Learn Online
+            </h3>
+
+            <p>
+                Study anytime and from anywhere.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>🏆</div>
+
+            <h3>
+                Build Your Skills
+            </h3>
+
+            <p>
+                Develop useful skills for your future.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSES -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>
+                POPULAR COURSES
+            </span>
+
+            <h2>
+                Explore Our Courses
+            </h2>
+
+            <p>
+                Start learning practical and valuable skills today.
+            </p>
+
+        </div>
+
+
+        <div class="course-grid">
+
+
+            <!-- WEB DEVELOPMENT -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+                    💻
+                </div>
+
+                <div class="course-content">
+
+                    <span class="category">
+                        Programming
+                    </span>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Learn HTML, CSS and JavaScript
+                        and build modern websites.
+                    </p>
+
+                    <div class="course-info">
+
+                        <span>
+                            👨‍🏫 Instructor
+                        </span>
+
+                        <span>
+                            ⏱ 8 Weeks
+                        </span>
+
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>
+                            ₹999
+                        </strong>
+
+                        <a href="login.html">
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <button type="submit">Login</button>
 
-        </form>
+            <!-- PYTHON -->
 
-        <p>
-            Don't have an account?
-            <a href="register.html">Register</a>
-        </p>
+            <div class="course-card">
+
+                <div class="course-image">
+                    🐍
+                </div>
+
+                <div class="course-content">
+
+                    <span class="category">
+                        Programming
+                    </span>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        Learn Python fundamentals and
+                        build practical applications.
+                    </p>
+
+                    <div class="course-info">
+
+                        <span>
+                            👨‍🏫 Instructor
+                        </span>
+
+                        <span>
+                            ⏱ 6 Weeks
+                        </span>
+
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>
+                            ₹799
+                        </strong>
+
+                        <a href="login.html">
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATA ANALYTICS -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+                    📊
+                </div>
+
+                <div class="course-content">
+
+                    <span class="category">
+                        Data
+                    </span>
+
+                    <h3>
+                        Data Analytics
+                    </h3>
+
+                    <p>
+                        Learn how to analyze data and
+                        create useful insights.
+                    </p>
+
+                    <div class="course-info">
+
+                        <span>
+                            👨‍🏫 Instructor
+                        </span>
+
+                        <span>
+                            ⏱ 10 Weeks
+                        </span>
+
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>
+                            ₹1,299
+                        </strong>
+
+                        <a href="login.html">
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div style="text-align: center; margin-top: 40px;">
+
+            <a href="courses.html" class="btn">
+                View All Courses
+            </a>
+
+        </div>
 
     </section>
 
 </main>
 
-<script>
-document.getElementById("loginForm").addEventListener("submit", function(event) {
 
-    event.preventDefault();
+<!-- FOOTER -->
 
-    alert("Login connection will be added next.");
+<footer>
 
-});
-</script>
+    <h3>
+        🎓 EduLearn
+    </h3>
+
+    <p>
+        Online Education and Course Management System
+    </p>
+
+    <p>
+        © 2026 EduLearn. All rights reserved.
+    </p>
+
+</footer>
+
 
 </body>
+
 </html>

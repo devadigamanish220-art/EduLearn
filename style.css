@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,10 +20,12 @@ a {
 }
 
 
-/* ================= NAVBAR ================= */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
-    height: 75px;
+    min-height: 75px;
     padding: 0 7%;
     background: white;
 
@@ -27,7 +33,7 @@ a {
     align-items: center;
     justify-content: space-between;
 
-    box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
 }
 
 .logo {
@@ -58,8 +64,14 @@ a {
     border-radius: 8px;
 }
 
+.nav-btn:hover {
+    background: #3730a3;
+}
 
-/* ================= HERO ================= */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 600px;
@@ -71,8 +83,8 @@ a {
 
     background:
         linear-gradient(
-            rgba(30,27,75,0.9),
-            rgba(30,27,75,0.9)
+            rgba(30, 27, 75, 0.9),
+            rgba(30, 27, 75, 0.9)
         ),
         url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
 
@@ -114,7 +126,9 @@ a {
 }
 
 
-/* ================= BUTTON ================= */
+/* =========================
+   BUTTONS
+========================= */
 
 .btn {
     display: inline-block;
@@ -157,7 +171,9 @@ a {
 }
 
 
-/* ================= FEATURES ================= */
+/* =========================
+   FEATURES
+========================= */
 
 .features {
     padding: 45px 8%;
@@ -165,8 +181,7 @@ a {
     background: white;
 
     display: grid;
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 25px;
 }
@@ -190,7 +205,9 @@ a {
 }
 
 
-/* ================= SECTION ================= */
+/* =========================
+   GENERAL SECTION
+========================= */
 
 .section {
     padding: 80px 8%;
@@ -218,14 +235,13 @@ a {
 }
 
 
-/* ================= COURSE GRID ================= */
+/* =========================
+   COURSE GRID
+========================= */
 
 .course-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
@@ -233,11 +249,9 @@ a {
     background: white;
 
     border-radius: 14px;
-
     overflow: hidden;
 
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 
     transition: 0.3s;
 }
@@ -246,10 +260,16 @@ a {
     transform: translateY(-6px);
 }
 
-.course-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.course-image {
+    height: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eef2ff;
+
+    font-size: 70px;
 }
 
 .course-content {
@@ -310,32 +330,23 @@ a {
     font-weight: bold;
 }
 
-
-/* ================= FOOTER ================= */
-
-footer {
-    padding: 45px 8%;
-
-    text-align: center;
-
-    background: #111827;
-    color: white;
-}
-
-footer p {
-    color: #9ca3af;
-    margin-top: 10px;
+.course-bottom a:hover {
+    text-decoration: underline;
 }
 
 
-/* ================= AUTH ================= */
+/* =========================
+   AUTH PAGES
+========================= */
 
 .auth-page {
-    min-height: 100vh;
+    min-height: calc(100vh - 75px);
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 50px 20px;
 
     background:
         linear-gradient(
@@ -358,8 +369,7 @@ footer p {
 
     overflow: hidden;
 
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
 }
 
 .auth-left {
@@ -391,6 +401,7 @@ footer p {
 
 .auth-box {
     padding: 60px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -423,6 +434,8 @@ footer p {
     border-radius: 7px;
 
     outline: none;
+
+    font-size: 15px;
 }
 
 .auth-box input:focus {
@@ -445,7 +458,31 @@ footer p {
 }
 
 
-/* ================= ALERT ================= */
+/* =========================
+   REGISTER
+========================= */
+
+.register-page {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #4f46e5
+        );
+}
+
+
+/* =========================
+   ALERTS
+========================= */
 
 .alert {
     padding: 12px 15px;
@@ -469,7 +506,9 @@ footer p {
 }
 
 
-/* ================= PAGE HEADER ================= */
+/* =========================
+   PAGE HEADER
+========================= */
 
 .page-header {
     padding: 70px 8%;
@@ -489,10 +528,30 @@ footer p {
 }
 
 
-/* ================= SEARCH ================= */
+/* =========================
+   COURSES PAGE
+========================= */
 
-.course-section {
+.course-section,
+.courses-section {
     padding: 60px 8%;
+}
+
+.courses-section > p:first-child {
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.courses-section > h1 {
+    font-size: 45px;
+    margin: 12px 0;
+}
+
+.courses-section > p {
+    color: #667085;
+    margin-bottom: 35px;
 }
 
 .search-box {
@@ -517,7 +576,9 @@ footer p {
 }
 
 
-/* ================= COURSE DETAILS ================= */
+/* =========================
+   COURSE DETAILS
+========================= */
 
 .course-detail {
     max-width: 1100px;
@@ -532,8 +593,7 @@ footer p {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 50px;
 }
@@ -566,8 +626,7 @@ footer p {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 15px;
 }
@@ -591,7 +650,9 @@ footer p {
 }
 
 
-/* ================= DASHBOARD ================= */
+/* =========================
+   DASHBOARD
+========================= */
 
 .dashboard,
 .admin-dashboard {
@@ -617,15 +678,16 @@ footer p {
 }
 
 
-/* ================= ADMIN ================= */
+/* =========================
+   ADMIN
+========================= */
 
 .stats {
     margin: 35px 0;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 20px;
 }
@@ -637,8 +699,7 @@ footer p {
 
     border-radius: 12px;
 
-    box-shadow:
-        0 5px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card strong {
@@ -664,8 +725,7 @@ footer p {
 .admin-form form {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 15px;
 
@@ -691,7 +751,9 @@ footer p {
 }
 
 
-/* ================= TABLE ================= */
+/* =========================
+   TABLE
+========================= */
 
 .table-container {
     margin-top: 20px;
@@ -728,18 +790,37 @@ th {
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 45px 8%;
+
+    text-align: center;
+
+    background: #111827;
+    color: white;
+}
+
+footer p {
+    color: #9ca3af;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 900px) {
 
     .course-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .features {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .auth-container {
@@ -758,12 +839,14 @@ th {
     .navbar {
         height: auto;
         padding: 20px;
+
         flex-direction: column;
         gap: 20px;
     }
 
     .navbar nav {
         gap: 12px;
+
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -788,6 +871,7 @@ th {
 
     .section,
     .course-section,
+    .courses-section,
     .dashboard,
     .admin-dashboard {
         padding: 45px 20px;
