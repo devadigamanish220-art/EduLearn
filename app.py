@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, "edulearn.db")
 
-app = Flask(__name__, static_folder="templates/static")
+app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "edulearn_secret_key")
 
 
